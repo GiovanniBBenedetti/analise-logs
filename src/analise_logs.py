@@ -10,14 +10,23 @@ def ler_log(caminho):
     with open(caminho, encoding="utf-8") as arquivo:
         for numero, linha in enumerate(arquivo, start=1):
             partes = linha.split()
-            if len(partes) < 5:
+            if len(partes) < 3:
                 continue  # pula linhas vazias ou incompletas
+
+            # Campos no formato chave=valor (user=, ip=, page=, file=...)
+            campos = {}
+            for parte in partes[3:]:
+                if "=" in parte:
+                    chave, valor = parte.split("=", 1)
+                    campos[chave] = valor
+
             eventos.append({
                 "linha": numero,
                 "horario": datetime.strptime(partes[0] + " " + partes[1], "%Y-%m-%d %H:%M:%S"),
                 "acao": partes[2],
-                "usuario": partes[3].replace("user=", ""),
-                "ip": partes[4].replace("ip=", ""),
+                "usuario": campos.pop("user", "-"),
+                "ip": campos.pop("ip", "-"),
+                "detalhe": " ".join(f"{k}={v}" for k, v in campos.items()),
                 "texto": linha.strip(),
             })
     return eventos
@@ -36,7 +45,8 @@ def comparar(log1, log2):
     for e1 in so_no_1:
         par = None
         for e2 in so_no_2:
-            mesmo_evento = e1["usuario"] == e2["usuario"] and e1["acao"] == e2["acao"]
+            mesmo_evento = (e1["usuario"] == e2["usuario"] and e1["acao"] == e2["acao"]
+                and e1["detalhe"] == e2["detalhe"])
             if mesmo_evento and e1["ip"] == e2["ip"]:
                 par = e2
                 problemas.append(f"HORÁRIO ALTERADO: {e1['usuario']} {e1['acao']} "
@@ -52,6 +62,12 @@ def comparar(log1, log2):
             so_no_2.remove(par)
         elif e1["acao"] in ("EXPORT", "DELETE"):
             problemas.append(f"{e1['acao']} DESAPARECIDO: linha {e1['linha']} -> {e1['texto']}")
+        else:
+            problemas.append(f"EVENTO DESAPARECIDO: linha {e1['linha']} -> {e1['texto']}")
+
+    # O que sobrou no segundo log não existia no original
+    for e2 in so_no_2:
+        problemas.append(f"EVENTO INSERIDO: linha {e2['linha']} -> {e2['texto']}")
 
     return problemas
 
