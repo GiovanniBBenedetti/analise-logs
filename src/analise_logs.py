@@ -85,3 +85,23 @@ def salvar_relatorio(problemas, caminho="inconsistencias.txt"):
         for p in problemas:
             arquivo.write(p + "\n")
     print(f"Relatório salvo em {caminho} ({len(problemas)} inconsistências)")
+
+
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Uso: python analise_logs.py log1.txt log2.txt")
+        sys.exit(1)
+
+    nome1, nome2 = sys.argv[1], sys.argv[2]
+    log1 = ler_log(nome1)
+    log2 = ler_log(nome2)
+
+    problemas = comparar(log1, log2)
+    problemas += verificar(log1, nome1)
+    problemas += verificar(log2, nome2)
+    salvar_relatorio(problemas)
+
+  
