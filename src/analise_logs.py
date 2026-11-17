@@ -54,3 +54,25 @@ def comparar(log1, log2):
             problemas.append(f"{e1['acao']} DESAPARECIDO: linha {e1['linha']} -> {e1['texto']}")
 
     return problemas
+
+
+def verificar(eventos, nome):
+    problemas = []
+    logado = {}
+
+    for e in eventos:
+        usuario = e["usuario"]
+        if e["acao"] == "LOGIN":
+            logado[usuario] = True
+        elif e["acao"] == "LOGOUT":
+            if not logado.get(usuario):
+                problemas.append(f"[{nome}] LOGOUT SEM LOGIN: linha {e['linha']} -> {e['texto']}")
+            logado[usuario] = False
+        elif logado.get(usuario) is False:
+            problemas.append(f"[{nome}] USUÁRIO ATIVO APÓS LOGOUT: linha {e['linha']} -> {e['texto']}")
+
+    for anterior, atual in zip(eventos, eventos[1:]):
+        if atual["horario"] < anterior["horario"]:
+            problemas.append(f"[{nome}] REGISTRO FORA DE ORDEM: linha {atual['linha']} -> {atual['texto']}")
+
+    return problemas
