@@ -1,0 +1,80 @@
+2026-11-08 08:00:01 LOGIN user=ana ip=192.168.1.10
+2026-11-08 08:01:15 LOGIN user=bruno ip=192.168.1.11
+2026-11-08 08:02:30 LOGIN user=carlos ip=192.168.1.12
+2026-11-08 08:03:12 LOGIN user=diana ip=192.168.1.13
+2026-11-08 08:04:20 LOGIN user=eduardo ip=192.168.1.14
+2026-11-08 08:05:50 VIEW user=ana page=/dashboard
+2026-11-08 08:06:15 VIEW user=bruno page=/clientes
+2026-11-08 08:07:22 VIEW user=carlos page=/estoque
+2026-11-08 08:08:10 VIEW user=diana page=/financeiro
+2026-11-08 08:09:03 VIEW user=eduardo page=/dashboard
+2026-11-08 08:10:15 DOWNLOAD user=ana file=relatorio.pdf
+2026-11-08 08:11:18 UPDATE user=bruno record=cliente145
+2026-11-08 08:12:25 VIEW user=carlos page=/vendas
+2026-11-08 08:13:31 VIEW user=diana page=/rh
+2026-11-08 08:14:45 VIEW user=eduardo page=/clientes
+2026-11-08 08:15:02 LOGOUT user=ana
+2026-11-08 08:16:14 LOGIN user=admin ip=10.0.0.77
+2026-11-08 08:16:45 VIEW user=admin page=/usuarios
+2026-11-08 08:17:11 CREATE_USER user=admin target=lucas
+2026-11-08 08:18:09 CHANGE_PASSWORD user=lucas
+2026-11-08 08:19:32 LOGIN user=lucas ip=192.168.1.30
+2026-11-08 08:20:15 VIEW user=lucas page=/dashboard
+2026-11-08 08:21:08 VIEW user=admin page=/logs
+2026-11-08 08:23:41 VIEW user=bruno page=/clientes
+2026-11-08 08:24:19 VIEW user=carlos page=/vendas
+2026-11-08 08:25:17 VIEW user=diana page=/financeiro
+2026-11-08 08:26:21 DOWNLOAD user=eduardo file=estoque.xlsx
+2026-11-08 08:27:33 VIEW user=lucas page=/clientes
+2026-11-08 08:28:24 UPDATE user=lucas record=cliente310
+2026-11-08 08:29:15 VIEW user=admin page=/logs
+2026-11-08 08:30:18 VIEW user=admin page=/financeiro
+2026-11-08 08:32:10 VIEW user=admin page=/backups
+2026-11-08 08:34:05 VIEW user=admin page=/logs
+2026-11-08 08:35:24 VIEW user=bruno page=/vendas
+2026-11-08 08:36:16 VIEW user=carlos page=/estoque
+2026-11-08 08:37:41 VIEW user=diana page=/rh
+2026-11-08 08:38:10 VIEW user=eduardo page=/dashboard
+2026-11-08 08:39:22 LOGOUT user=lucas
+2026-11-08 08:40:11 VIEW user=admin page=/usuarios
+2026-11-08 08:41:05 UPDATE user=admin record=user_maria
+2026-11-08 08:42:27 VIEW user=admin page=/logs
+2026-11-08 08:44:19 LOGIN user=fernanda ip=192.168.1.31
+2026-11-08 08:45:03 VIEW user=fernanda page=/dashboard
+2026-11-08 08:46:10 VIEW user=fernanda page=/estoque
+2026-11-08 08:47:15 VIEW user=bruno page=/clientes
+2026-11-08 08:48:22 VIEW user=carlos page=/financeiro
+2026-11-08 08:49:11 VIEW user=diana page=/dashboard
+2026-11-08 08:50:02 VIEW user=eduardo page=/relatorios
+2026-11-08 08:51:08 VIEW user=fernanda page=/clientes
+2026-11-08 08:52:17 DOWNLOAD user=fernanda file=clientes.xlsx
+2026-11-08 08:53:20 VIEW user=admin page=/logs
+2026-11-08 08:54:11 LOGOUT user=fernanda
+2026-11-08 08:55:08 VIEW user=admin page=/usuarios
+2026-11-08 08:56:17 CHANGE_PASSWORD user=bruno
+2026-11-08 08:57:33 VIEW user=admin page=/logs
+2026-11-08 09:01:21 VIEW user=admin page=/logs
+2026-11-08 09:00:12 DELETE user=admin file=contratos_antigos.zip
+2026-11-08 09:02:11 VIEW user=bruno page=/dashboard
+2026-11-08 09:03:15 VIEW user=carlos page=/dashboard
+2026-11-08 09:04:28 VIEW user=diana page=/clientes
+2026-11-08 09:05:31 VIEW user=eduardo page=/estoque
+2026-11-08 09:07:05 VIEW user=admin page=/logs
+2026-11-08 09:08:13 UPDATE user=admin record=user_joao
+2026-11-08 09:09:00 VIEW user=admin page=/usuarios
+2026-11-08 09:10:22 VIEW user=admin page=/auditoria
+2026-11-08 09:11:40 VIEW user=admin page=/logs
+2026-11-08 09:13:30 VIEW user=admin page=/logs
+2026-11-08 09:14:24 VIEW user=bruno page=/clientes
+2026-11-08 09:15:46 UPDATE user=bruno record=cliente212
+2026-11-08 09:16:38 VIEW user=carlos page=/vendas
+2026-11-08 09:17:55 VIEW user=diana page=/rh
+2026-11-08 09:18:16 VIEW user=eduardo page=/financeiro
+2026-11-08 09:19:33 VIEW user=admin page=/usuarios
+2026-11-08 09:21:55 VIEW user=admin page=/logs
+2026-11-08 09:22:32 LOGOUT user=admin
+2026-11-08 09:23:40 LOGOUT user=bruno
+2026-11-08 09:24:28 LOGOUT user=carlos
+2026-11-08 09:25:39 LOGOUT user=diana
+2026-11-08 09:26:41 LOGOUT user=eduardo
+2026-11-08 09:28:02 VIEW user=lucas page=/clientes
