@@ -76,3 +76,12 @@ def verificar(eventos, nome):
             problemas.append(f"[{nome}] REGISTRO FORA DE ORDEM: linha {atual['linha']} -> {atual['texto']}")
 
     return problemas
+
+
+def salvar_relatorio(problemas, caminho="inconsistencias.txt"):
+    with open(caminho, "w", encoding="utf-8") as arquivo:
+        arquivo.write("RELATÓRIO DE INCONSISTÊNCIAS\n")
+        arquivo.write(f"Total encontrado: {len(problemas)}\n\n")
+        for p in problemas:
+            arquivo.write(p + "\n")
+    print(f"Relatório salvo em {caminho} ({len(problemas)} inconsistências)")
